@@ -1,26 +1,30 @@
 <script setup lang="ts">
-import SideBar from '@/components/SideBar.vue';
-// import DoughtnutMain from "../components/DoughtnutMain.vue";
-// import BubbleMain from "../components/BubbleMain.vue"
-// import BarMain from "../components/BarMain.vue"
-const folders = [
-      {
-        subtitle: "John Doe",
-        title: "john@gmail.com",
-        img: "1.jpg",
-      },
-    ]
+import SideBar from '@/components/SideBar.vue'
+import DoughtnutMain from '../components/DoughtnutMain.vue'
+import BubbleMain from '../components/BubbleMain.vue'
+import BarMain from '../components/BarMain.vue'
+
+interface Folders {
+  subtitle: string | number
+  title: string
+  img: any
+}
+
+const folders: Folders[] = [
+  {
+    subtitle: 'John Doe',
+    title: 'john@gmail.com',
+    img: '1.jpg'
+  }
+]
 </script>
 
 <template>
-  <VApp id="inspire" style="background-color: rgba(219, 251, 251, 0.974);">
+  <VApp id="inspire" style="background-color: rgba(219, 251, 251, 0.974)">
     <SideBar />
     <VMain>
-
-      <VContainer class="px-6 mt-n2" fluid> 
-
+      <VContainer class="px-6 mt-n2" fluid>
         <VRow>
-
           <VCol cols="12" sm="4">
             <VCard color="#849239" theme="dark" class="rounded-xl" height="150">
               <div class="d-flex flex-no-wrap justify-space-between">
@@ -30,8 +34,7 @@ const folders = [
                 </div>
                 <VImg src="av.png" class="mr-4 mt-5" absolute></VImg>
               </div>
-            </VCard> 
-
+            </VCard>
           </VCol>
 
           <VCol cols="12" sm="4">
@@ -43,7 +46,7 @@ const folders = [
                 </div>
                 <VImg src="av.png" class="mr-4 mt-5" absolute></VImg>
               </div>
-            </VCard> 
+            </VCard>
           </VCol>
 
           <VCol cols="12" sm="4">
@@ -55,25 +58,25 @@ const folders = [
                 </div>
                 <VImg src="map.png" class="mr-4 mt-5" absolute></VImg>
               </div>
-            </VCard> 
+            </VCard>
           </VCol>
-          
+
           <VCol cols="12" sm="4" class="mt-n4">
-            <VCard class="mx-auto" height="350px">
+            <VCard class="mx-auto" style="height: fit-content">
               <VCardItem title="Doughnut">
-                <!-- <DoughtnutMain/> -->
+                <DoughtnutMain />
               </VCardItem>
             </VCard>
           </VCol>
 
           <VCol cols="12" sm="8" class="mt-n4">
-            <VCard class="mx-auto" height="350px">
-              <VCardItem title="Bubble">
-                <!-- <BubbleMain/> -->
+            <VCard class="mx-auto" style="height: fit-content">
+              <VCardItem>
+                <BubbleMain />
               </VCardItem>
             </VCard>
           </VCol>
-          
+
           <VCol cols="12" sm="8" class="mt-n4">
             <VCard class="mx-auto">
               <VCardItem title="Last Trips">
@@ -96,11 +99,7 @@ const folders = [
                         </template>
 
                         <template v-slot:append>
-                          <VBtn
-                            size="large"
-                            color="#B49239"
-                            icon="mdi mdi-airplane-off"
-                          ></VBtn>
+                          <VBtn size="large" color="#B49239" icon="mdi mdi-airplane-off"></VBtn>
                         </template>
                       </VListItem>
                     </VList>
@@ -111,18 +110,15 @@ const folders = [
           </VCol>
 
           <v-col cols="12" sm="4" class="mt-n4">
-            <v-card height="155px" class="">
-              <v-card-item title="Bar Chart">
-                <!-- <BarMain class="mt-n4" /> -->
+            <v-card style="height: 150px">
+              <v-card-item>
+                <BarMain class="mt-n4" />
               </v-card-item>
               <v-card-text class="py-0"> </v-card-text>
             </v-card>
           </v-col>
-
         </VRow>
-
       </VContainer>
-      
     </VMain>
   </VApp>
 </template>

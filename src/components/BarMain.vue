@@ -1,54 +1,58 @@
-<script setup lang="ts">
-import { ref } from 'vue';
-import { Bar } from 'vue3-chartjs';
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-} from 'chart.js';
-
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-);
-
-const chartData = ref({
-      labels: [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-      ],
-      datasets: [
-        {
-          label: 'Data One',
-          backgroundColor: '#425C5A',
-          data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
-        },
-      ],
-    });
-
-    const chartOptions = ref({
-      responsive: true,
-    });
+<script lang="ts" setup>
+interface Items {
+  title : string , 
+  value : string 
+}
+const items : Items[] = [{ title: 'Option 1', value: 'Option 1' }, { title: 'Option 2', value: 'Option 2' }, { title: 'Option 3', value: 'Option 3' }]
 </script>
 
 <template>
-    <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
-  </template>
+  <div class="demo-space-x" style="padding-top:20px;">
+    <VMenu location="top">
+      <template #activator="{ props }">
+        <VBtn v-bind="props">
+          Top
+        </VBtn>
+      </template>
+
+      <VList :items="items" />
+    </VMenu>
+
+    <VMenu location="bottom">
+      <template #activator="{ props }">
+        <VBtn v-bind="props">
+          Bottom
+        </VBtn>
+      </template>
+
+      <VList :items="items" />
+    </VMenu>
+
+    <VMenu location="start">
+      <template #activator="{ props }">
+        <VBtn v-bind="props">
+          Start
+        </VBtn>
+      </template>
+
+      <VList :items="items" />
+    </VMenu>
+
+    <VMenu location="end">
+      <template #activator="{ props }">
+        <VBtn v-bind="props">
+          End
+        </VBtn>
+      </template>
+
+      <VList :items="items" />
+    </VMenu>
+  </div>
+</template>
+
+
+
+
+
+
+
